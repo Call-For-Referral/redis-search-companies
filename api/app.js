@@ -43,7 +43,7 @@ app.post("/add-company", async (req, res) => {
         });
     }
 
-    await addCompany({ company_name: company_name.toLowerCase() });
+    await addCompany({ ...req.body,company_name: company_name.toLowerCase() });
     res.send({
         message: "Company added",
     });
